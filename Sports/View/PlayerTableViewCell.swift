@@ -8,12 +8,21 @@
 
 import UIKit
 
-class PlayerTableViewCell: UITableViewCell {
+@IBDesignable class PlayerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var jumperNumber: UILabel!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var statValue: UILabel!
     @IBOutlet weak var headshotImage: UIImageView!
+    
+    var fullname: String {
+        get {
+            return name.text ?? ""
+        }
+        set {
+            name.text = newValue
+        }
+    }
     
 }

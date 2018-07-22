@@ -69,7 +69,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="headshotImage" destination="Hx0-a2-jTa" id="971-lp-zJ1"/>
-                <outlet property="imageView" destination="Hx0-a2-jTa" id="7xe-rQ-9MJ"/>
                 <outlet property="jumperNumber" destination="dBf-t4-4sh" id="D6x-5g-m3F"/>
                 <outlet property="name" destination="TWM-Xb-Lai" id="Mvo-ny-9U3"/>
                 <outlet property="position" destination="J1h-tU-ADX" id="VfB-vg-RH4"/>

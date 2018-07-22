@@ -21,8 +21,12 @@ class MatchViewController: UITableViewController {
                 let matchStats = try JSONDecoder().decode([Match].self, from: data)
                 self.matchStats = matchStats
                 self.matchStatsSectionViewModel = MatchStatsSectionViewModel(matchStats: matchStats)
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.tableView.reloadData()
+                }
             } catch {
-                
+                // TODO: implement error case.
             }
         }) { error in
             // TODO: implement error case.
@@ -30,7 +34,15 @@ class MatchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "player", for: indexPath)
+        guard let _ = matchStats else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "player") as? PlayerTableViewCell else { return UITableViewCell() }
+        // Switch on stat type enum here.
+        cell.name?.text = "hi"
+      //  cell.name.text = matchStats?.first?.teamA.topPlayers?.first?.fullName
+//        cell.jumperNumber.text = String(matchStats?.first?.teamA.topPlayers![1].jumperNumber ?? 0)
+//        cell.position.text = matchStats?.first?.teamA.topPlayers![indexPath.row].position
+//        cell.statValue.text = String(matchStats?.first?.teamA.topPlayers![indexPath.row].statValue ?? 0)
+        
         return cell
     }
     
@@ -44,6 +56,10 @@ class MatchViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return matchStatsSectionViewModel?.numberOfSections ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
 }
