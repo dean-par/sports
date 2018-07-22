@@ -14,6 +14,8 @@
 		A41EF23721045890005A08D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41EF23521045890005A08D4 /* LaunchScreen.storyboard */; };
 		A41EF24221045890005A08D4 /* SportsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41EF24121045890005A08D4 /* SportsTests.swift */; };
 		A41EF24D21045890005A08D4 /* SportsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41EF24C21045890005A08D4 /* SportsUITests.swift */; };
+		A41EF25C21045FC0005A08D4 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41EF25B21045FC0005A08D4 /* Match.swift */; };
+		A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4D82104604C007A2CCC /* IndividualStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		A41EF24821045890005A08D4 /* SportsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41EF24C21045890005A08D4 /* SportsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsUITests.swift; sourceTree = "<group>"; };
 		A41EF24E21045890005A08D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A41EF25B21045FC0005A08D4 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		A421E4D82104604C007A2CCC /* IndividualStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		A41EF22B2104588F005A08D4 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
+				A41EF25A21045FA1005A08D4 /* Model */,
 				A41EF22C2104588F005A08D4 /* AppDelegate.swift */,
 				A41EF22E2104588F005A08D4 /* ViewController.swift */,
 				A41EF2302104588F005A08D4 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				A41EF24E21045890005A08D4 /* Info.plist */,
 			);
 			path = SportsUITests;
+			sourceTree = "<group>";
+		};
+		A41EF25A21045FA1005A08D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A41EF25B21045FC0005A08D4 /* Match.swift */,
+				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A41EF22F2104588F005A08D4 /* ViewController.swift in Sources */,
 				A41EF22D2104588F005A08D4 /* AppDelegate.swift in Sources */,
+				A41EF25C21045FC0005A08D4 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
