@@ -11,6 +11,7 @@ import UIKit
 class MatchViewController: UITableViewController {
     
     var matchStats: [Match]?
+    var matchStatsSectionViewModel: MatchStatsSectionViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class MatchViewController: UITableViewController {
             do {
                 let matchStats = try JSONDecoder().decode([Match].self, from: data)
                 self.matchStats = matchStats
+                self.matchStatsSectionViewModel = MatchStatsSectionViewModel(matchStats: matchStats)
             } catch {
                 
             }
@@ -33,24 +35,15 @@ class MatchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // To move into view model.
-        switch section {
-        case 0: return "fantasy"
-        case 1: return "tackles"
-        case 2: return "run in m"
-        case 3: return "runs"
-        default: return ""
-        }
+        return matchStatsSectionViewModel?.titleFor(section: section)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // To move into view model.
-        return 5
+        return matchStatsSectionViewModel?.numberOfRows(section: section) ?? 0
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // To move into view model.
-        return 4
+        return matchStatsSectionViewModel?.numberOfSections ?? 0
     }
 
 }
