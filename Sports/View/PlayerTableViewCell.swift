@@ -16,13 +16,4 @@ import UIKit
     @IBOutlet weak var statValue: UILabel!
     @IBOutlet weak var headshotImage: UIImageView!
     
-    var fullname: String {
-        get {
-            return name.text ?? ""
-        }
-        set {
-            name.text = newValue
-        }
-    }
-    
 }

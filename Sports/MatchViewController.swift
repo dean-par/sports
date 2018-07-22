@@ -12,11 +12,18 @@ class MatchViewController: UITableViewController {
     
     var matchStats: [Match]?
     var matchStatsSectionViewModel: MatchStatsSectionViewModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "PlayerTableViewCell", bundle: nil), forCellReuseIdentifier: "player")
         // Force unwrap url since we have certainty it exists.
-        NetworkManager.shared.fetchStats(for: Configuration.matchURL(for: "NRL20172101")!, completionHandler: { data in
+        NetworkManager.shared.fetch(for: Configuration.matchURL(for: "NRL20172101")!, completionHandler: { data in
             do {
                 let matchStats = try JSONDecoder().decode([Match].self, from: data)
                 self.matchStats = matchStats
@@ -34,14 +41,13 @@ class MatchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let _ = matchStats else { return UITableViewCell() }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "player") as? PlayerTableViewCell else { return UITableViewCell() }
         // Switch on stat type enum here.
-        cell.name?.text = "hi"
-      //  cell.name.text = matchStats?.first?.teamA.topPlayers?.first?.fullName
-//        cell.jumperNumber.text = String(matchStats?.first?.teamA.topPlayers![1].jumperNumber ?? 0)
-//        cell.position.text = matchStats?.first?.teamA.topPlayers![indexPath.row].position
-//        cell.statValue.text = String(matchStats?.first?.teamA.topPlayers![indexPath.row].statValue ?? 0)
+        cell.name.text = matchStats?.first?.teamA.topPlayers?[indexPath.row].fullName
+        cell.jumperNumber.text = String(matchStats?.first?.teamA.topPlayers?[indexPath.row].jumperNumber ?? 0)
+        cell.position.text = matchStats?.first?.teamA.topPlayers![indexPath.row].position
+        cell.statValue.text = String(matchStats?.first?.teamA.topPlayers![indexPath.row].statValue ?? 0)
+        cell.layoutIfNeeded()
         
         return cell
     }
@@ -56,10 +62,6 @@ class MatchViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return matchStatsSectionViewModel?.numberOfSections ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
     }
 
 }

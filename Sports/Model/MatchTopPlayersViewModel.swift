@@ -22,6 +22,4 @@ class MatchTopPlayersViewModel {
         statType = match.statType
     }
     
-
-    
 }

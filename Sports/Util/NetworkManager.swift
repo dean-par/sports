@@ -14,7 +14,7 @@ class NetworkManager {
         return NetworkManager()
     }()
     
-    func fetchStats(for url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
+    func fetch(for url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         var urlRequest = URLRequest(url: url)
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
