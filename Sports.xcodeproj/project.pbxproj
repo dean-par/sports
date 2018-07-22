@@ -105,6 +105,7 @@
 		A41EF22B2104588F005A08D4 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
+				A421E4E4210467BD007A2CCC /* Util */,
 				A41EF25A21045FA1005A08D4 /* Model */,
 				A41EF22C2104588F005A08D4 /* AppDelegate.swift */,
 				A41EF22E2104588F005A08D4 /* ViewController.swift */,
@@ -139,10 +140,17 @@
 			children = (
 				A41EF25B21045FC0005A08D4 /* Match.swift */,
 				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A421E4E4210467BD007A2CCC /* Util */ = {
+			isa = PBXGroup;
+			children = (
 				A421E4DA210462AF007A2CCC /* NetworkManager.swift */,
 				A421E4DD2104633E007A2CCC /* Configuration.swift */,
 			);
-			path = Model;
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
