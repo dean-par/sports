@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MatchViewController: UITableViewController {
     
     var matchStats: [Match]?
 
