@@ -18,6 +18,7 @@
 		A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4D82104604C007A2CCC /* IndividualStats.swift */; };
 		A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4DA210462AF007A2CCC /* NetworkManager.swift */; };
 		A421E4DE2104633E007A2CCC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4DD2104633E007A2CCC /* Configuration.swift */; };
+		A4B43A9521049D82007B7491 /* MatchTopPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A421E4D82104604C007A2CCC /* IndividualStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStats.swift; sourceTree = "<group>"; };
 		A421E4DA210462AF007A2CCC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A421E4DD2104633E007A2CCC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTopPlayersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A41EF22B2104588F005A08D4 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
+				A4B43A93210479E7007B7491 /* View */,
 				A421E4E4210467BD007A2CCC /* Util */,
 				A41EF25A21045FA1005A08D4 /* Model */,
 				A41EF22C2104588F005A08D4 /* AppDelegate.swift */,
@@ -140,6 +143,7 @@
 			children = (
 				A41EF25B21045FC0005A08D4 /* Match.swift */,
 				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
+				A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +155,13 @@
 				A421E4DD2104633E007A2CCC /* Configuration.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		A4B43A93210479E7007B7491 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A421E4DE2104633E007A2CCC /* Configuration.swift in Sources */,
+				A4B43A9521049D82007B7491 /* MatchTopPlayersViewModel.swift in Sources */,
 				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A41EF22F2104588F005A08D4 /* MatchViewController.swift in Sources */,
 				A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */,
