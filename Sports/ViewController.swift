@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var matchStats: [Match]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Force unwrap url since we have certainty it exists.
+        NetworkManager.shared.fetchStats(for: Configuration.matchURL(for: "NRL20172101")!, completionHandler: { data in
+            do {
+                let matchStats = try JSONDecoder().decode([Match].self, from: data)
+                print(matchStats)
+            } catch {
+                
+            }
+        }) { error in
+            // TODO: implement error case.
+        }
     }
 
     override func didReceiveMemoryWarning() {

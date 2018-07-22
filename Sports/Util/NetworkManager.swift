@@ -14,8 +14,10 @@ class NetworkManager {
         return NetworkManager()
     }()
     
-    func fetchStats(for urlRequest: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
+    func fetchStats(for url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("Content-Type", forHTTPHeaderField: "application/json")
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let data = data {
                 completionHandler(data)
@@ -29,3 +31,4 @@ class NetworkManager {
     }
     
 }
+
