@@ -51,10 +51,10 @@ class MatchViewController: UITableViewController {
             cell.teamAPlayer.subDetailTextLabel.text = String(player.statValue)
             let playerID = String(player.id)
             // Downloading image is failing.
-            cell.teamAPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-//            cell.teamAPlayer.headshotImage.isUserInteractionEnabled = true
-//            cell.headshotImage?.addGestureRecognizer(tapGesture)
+            cell.teamAPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+            cell.teamAPlayer.headshotImage?.addGestureRecognizer(tapGesture)
+            cell.teamAPlayer.headshotImage?.isUserInteractionEnabled = true
         }
         if let topPlayers = matchStats?.first?.teamB.topPlayers {
             let player = topPlayers[indexPath.row]
@@ -64,10 +64,10 @@ class MatchViewController: UITableViewController {
             cell.teamBPlayer.subDetailTextLabel.text = String(player.statValue)
             let playerID = String(player.id)
             // Downloading image is failing.
-            cell.teamBPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-            //            cell.teamAPlayer.headshotImage.isUserInteractionEnabled = true
-            //            cell.headshotImage?.addGestureRecognizer(tapGesture)
+            cell.teamBPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+            cell.teamBPlayer.headshotImage?.addGestureRecognizer(tapGesture)
+            cell.teamBPlayer.headshotImage?.isUserInteractionEnabled = true
         }
         cell.layoutIfNeeded()
         
@@ -85,7 +85,7 @@ class MatchViewController: UITableViewController {
         case "playerDetail":
             guard let detailViewController = segue.destination as? PlayerDetailViewController else { return }
             detailViewController.playerID = String(matchStats?.first?.teamA.topPlayers![indexPath.row].id ?? 0)
-            detailViewController.teamID = "6666"
+            detailViewController.teamID = String(matchStats?.first?.teamA.id ?? 0)
         default: break
         }
         

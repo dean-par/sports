@@ -32,21 +32,6 @@ class PlayerView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        addSubview(headshotImage)
-//        addSubview(textLabel)
-//        addSubview(detailTextLabel)
-//        addSubview(subtitleTextLabel)
-//        addSubview(subDetailTextLabel)
-//        headshotImage.frame = self.bounds
-//        headshotImage.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        textLabel.frame = self.bounds
-//        textLabel.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        detailTextLabel.frame = self.bounds
-//        detailTextLabel.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        subDetailTextLabel.frame = self.bounds
-//        subDetailTextLabel.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        subtitleTextLabel.frame = self.bounds
-//        subtitleTextLabel.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
 }
