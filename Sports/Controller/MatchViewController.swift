@@ -43,19 +43,32 @@ class MatchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "player") as? PlayerTableViewCell else { return UITableViewCell() }
         // Switch on stat type enum here.
-//        if let topPlayers = matchStats?.first?.teamA.topPlayers {
-//            let player = topPlayers[indexPath.row]
-//            cell.name.text = player.fullName
-//            cell.jumperNumber.text = String(player.jumperNumber)
-//            cell.position.text = player.position
-//            cell.statValue.text = String(player.statValue)
-//            let playerID = String(player.id)
-//            // Downloading image is failing.
-//            cell.headshotImage?.downloadedFrom(url: Configuration.image(for: playerID)!)
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-//            cell.headshotImage?.isUserInteractionEnabled = true
+        if let topPlayers = matchStats?.first?.teamA.topPlayers {
+            let player = topPlayers[indexPath.row]
+            cell.teamAPlayer.textLabel.text = player.fullName
+            cell.teamAPlayer.detailTextLabel.text = String(player.jumperNumber)
+            cell.teamAPlayer.subtitleTextLabel.text = player.position
+            cell.teamAPlayer.subDetailTextLabel.text = String(player.statValue)
+            let playerID = String(player.id)
+            // Downloading image is failing.
+            cell.teamAPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+//            cell.teamAPlayer.headshotImage.isUserInteractionEnabled = true
 //            cell.headshotImage?.addGestureRecognizer(tapGesture)
-//        }
+        }
+        if let topPlayers = matchStats?.first?.teamB.topPlayers {
+            let player = topPlayers[indexPath.row]
+            cell.teamBPlayer.textLabel.text = player.fullName
+            cell.teamBPlayer.detailTextLabel.text = String(player.jumperNumber)
+            cell.teamBPlayer.subtitleTextLabel.text = player.position
+            cell.teamBPlayer.subDetailTextLabel.text = String(player.statValue)
+            let playerID = String(player.id)
+            // Downloading image is failing.
+            cell.teamBPlayer.headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+            //            cell.teamAPlayer.headshotImage.isUserInteractionEnabled = true
+            //            cell.headshotImage?.addGestureRecognizer(tapGesture)
+        }
         cell.layoutIfNeeded()
         
         return cell
