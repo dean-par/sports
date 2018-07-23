@@ -43,10 +43,16 @@ class MatchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "player") as? PlayerTableViewCell else { return UITableViewCell() }
         // Switch on stat type enum here.
-        cell.name.text = matchStats?.first?.teamA.topPlayers?[indexPath.row].fullName
-        cell.jumperNumber.text = String(matchStats?.first?.teamA.topPlayers?[indexPath.row].jumperNumber ?? 0)
-        cell.position.text = matchStats?.first?.teamA.topPlayers![indexPath.row].position
-        cell.statValue.text = String(matchStats?.first?.teamA.topPlayers![indexPath.row].statValue ?? 0)
+        if let topPlayers = matchStats?.first?.teamA.topPlayers {
+            let player = topPlayers[indexPath.row]
+            cell.name.text = player.fullName
+            cell.jumperNumber.text = String(player.jumperNumber)
+            cell.position.text = player.position
+            cell.statValue.text = String(player.statValue)
+            let playerID = String(player.id)
+            // Downloading image is failing.
+            cell.imageView?.downloadedFrom(url: Configuration.image(for: playerID)!)
+        }
         cell.layoutIfNeeded()
         
         return cell
