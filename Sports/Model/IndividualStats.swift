@@ -10,14 +10,14 @@ import Foundation
 
 struct IndividualStats: Codable {
     let id: Int
-    let surname, position, fullName, shortName: String
-    let dateOfBirth: String
+    let surname, position, fullName, shortName: String?
+    let dateOfBirth: String?
     let heightCM: Int
-    let otherNames: String
+    let otherNames: String?
     let weightKg: Int
-    let lastMatchID: String
+    let lastMatchID: String?
     let careerStats: CareerStats
-    let lastMatchStats, seriesSeasonStats: [String: Double?]
+    let lastMatchStats: [String: Double?]
     
     enum CodingKeys: String, CodingKey {
         case id, surname, position
@@ -30,9 +30,11 @@ struct IndividualStats: Codable {
         case lastMatchID = "last_match_id"
         case careerStats = "career_stats"
         case lastMatchStats = "last_match_stats"
-        case seriesSeasonStats = "series_season_stats"
+       // case seriesSeasonStats = "series_season_stats"
     }
 }
+
+
 
 struct CareerStats: Codable {
     let games, points, tries: Int

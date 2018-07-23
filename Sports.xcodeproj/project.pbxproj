@@ -24,6 +24,7 @@
 		A4B43AA02104A5CB007B7491 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */; };
 		A4B43AAC2105E32E007B7491 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */; };
 		A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */; };
+		A4B43AB72105F9F6007B7491 /* PlayerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AB62105F9F6007B7491 /* PlayerDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
+		A4B43AB62105F9F6007B7491 /* PlayerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,7 @@
 				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
 				A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */,
 				A4B43A9B2104A339007B7491 /* MatchStatsSectionViewModel.swift */,
-				A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */,
+				A4B43AB62105F9F6007B7491 /* PlayerDetailViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 			children = (
 				A421E4DA210462AF007A2CCC /* NetworkManager.swift */,
 				A421E4DD2104633E007A2CCC /* Configuration.swift */,
+				A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */,
 				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A41EF22F2104588F005A08D4 /* MatchViewController.swift in Sources */,
+				A4B43AB72105F9F6007B7491 /* PlayerDetailViewModel.swift in Sources */,
 				A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */,
 				A4B43A9F2104A5CB007B7491 /* PlayerTableViewCell.swift in Sources */,
 				A41EF22D2104588F005A08D4 /* AppDelegate.swift in Sources */,

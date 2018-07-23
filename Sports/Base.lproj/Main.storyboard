@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="1477.5999999999999" y="-295.50224887556226"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Player Detail View Controller-->
         <scene sceneID="w6s-fC-PjS">
             <objects>
-                <tableViewController id="D43-Kp-y98" sceneMemberID="viewController">
+                <tableViewController id="D43-Kp-y98" customClass="PlayerDetailViewController" customModule="Sports" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RvU-NV-Rgt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TfZ-vK-4wg" detailTextLabel="2G8-4D-H7o" style="IBUITableViewCellStyleValue1" id="Q7u-SZ-eOV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stat" textLabel="TfZ-vK-4wg" detailTextLabel="2G8-4D-H7o" style="IBUITableViewCellStyleValue1" id="Q7u-SZ-eOV">
                                 <rect key="frame" x="0.0" y="278" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q7u-SZ-eOV" id="G07-0i-J2d">
@@ -110,6 +110,10 @@
                             <outlet property="delegate" destination="D43-Kp-y98" id="ZNw-U9-rpv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="headshotImage" destination="kht-4E-SSD" id="BOy-oo-IiB"/>
+                        <outlet property="nameLabel" destination="qqi-jG-Lcf" id="6sP-pg-8ca"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3N-Ra-X4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

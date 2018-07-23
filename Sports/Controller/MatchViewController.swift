@@ -62,8 +62,7 @@ class MatchViewController: UITableViewController {
     }
     
     @objc func handleTap() {
-        // handling code
-        print("tapped")
+        performSegue(withIdentifier: "playerDetail", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
