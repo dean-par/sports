@@ -51,11 +51,19 @@ class MatchViewController: UITableViewController {
             cell.statValue.text = String(player.statValue)
             let playerID = String(player.id)
             // Downloading image is failing.
-            cell.imageView?.downloadedFrom(url: Configuration.image(for: playerID)!)
+            cell.headshotImage?.downloadedFrom(url: Configuration.image(for: playerID)!)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+            cell.headshotImage?.isUserInteractionEnabled = true
+            cell.headshotImage?.addGestureRecognizer(tapGesture)
         }
         cell.layoutIfNeeded()
         
         return cell
+    }
+    
+    @objc func handleTap() {
+        // handling code
+        print("tapped")
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

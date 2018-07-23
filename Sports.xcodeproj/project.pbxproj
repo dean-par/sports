@@ -23,6 +23,7 @@
 		A4B43A9F2104A5CB007B7491 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43A9D2104A5CB007B7491 /* PlayerTableViewCell.swift */; };
 		A4B43AA02104A5CB007B7491 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */; };
 		A4B43AAC2105E32E007B7491 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */; };
+		A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A4B43A9D2104A5CB007B7491 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +117,11 @@
 		A41EF22B2104588F005A08D4 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
+				A4B43AB52105F998007B7491 /* Controller */,
 				A4B43A93210479E7007B7491 /* View */,
 				A421E4E4210467BD007A2CCC /* Util */,
 				A41EF25A21045FA1005A08D4 /* Model */,
 				A41EF22C2104588F005A08D4 /* AppDelegate.swift */,
-				A41EF22E2104588F005A08D4 /* MatchViewController.swift */,
 				A41EF2302104588F005A08D4 /* Main.storyboard */,
 				A41EF23321045890005A08D4 /* Assets.xcassets */,
 				A41EF23521045890005A08D4 /* LaunchScreen.storyboard */,
@@ -174,6 +176,15 @@
 				A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A4B43AB52105F998007B7491 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */,
+				A41EF22E2104588F005A08D4 /* MatchViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +322,7 @@
 				A4B43A9C2104A339007B7491 /* MatchStatsSectionViewModel.swift in Sources */,
 				A421E4DE2104633E007A2CCC /* Configuration.swift in Sources */,
 				A4B43A9521049D82007B7491 /* MatchTopPlayersViewModel.swift in Sources */,
+				A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */,
 				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A41EF22F2104588F005A08D4 /* MatchViewController.swift in Sources */,
 				A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */,
