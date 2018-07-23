@@ -43,27 +43,41 @@ class MatchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "player") as? PlayerTableViewCell else { return UITableViewCell() }
         // Switch on stat type enum here.
-        if let topPlayers = matchStats?.first?.teamA.topPlayers {
-            let player = topPlayers[indexPath.row]
-            cell.name.text = player.fullName
-            cell.jumperNumber.text = String(player.jumperNumber)
-            cell.position.text = player.position
-            cell.statValue.text = String(player.statValue)
-            let playerID = String(player.id)
-            // Downloading image is failing.
-            cell.headshotImage?.downloadedFrom(url: Configuration.image(for: playerID)!)
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-            cell.headshotImage?.isUserInteractionEnabled = true
-            cell.headshotImage?.addGestureRecognizer(tapGesture)
-        }
+//        if let topPlayers = matchStats?.first?.teamA.topPlayers {
+//            let player = topPlayers[indexPath.row]
+//            cell.name.text = player.fullName
+//            cell.jumperNumber.text = String(player.jumperNumber)
+//            cell.position.text = player.position
+//            cell.statValue.text = String(player.statValue)
+//            let playerID = String(player.id)
+//            // Downloading image is failing.
+//            cell.headshotImage?.downloadedFrom(url: Configuration.image(for: playerID)!)
+//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+//            cell.headshotImage?.isUserInteractionEnabled = true
+//            cell.headshotImage?.addGestureRecognizer(tapGesture)
+//        }
         cell.layoutIfNeeded()
         
         return cell
     }
     
-    @objc func handleTap() {
-        performSegue(withIdentifier: "playerDetail", sender: self)
+    @objc func handleTap(sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        performSegue(withIdentifier: "playerDetail", sender: indexPath)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = sender as? IndexPath else { return }
+        switch segue.identifier {
+        case "playerDetail":
+            guard let detailViewController = segue.destination as? PlayerDetailViewController else { return }
+            detailViewController.playerID = String(matchStats?.first?.teamA.topPlayers![indexPath.row].id ?? 0)
+            detailViewController.teamID = "6666"
+        default: break
+        }
+        
+    }
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return matchStatsSectionViewModel?.titleFor(section: section)

@@ -13,7 +13,7 @@ class PlayerDetailViewController: UITableViewController {
     @IBOutlet weak var headshotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-
+    var isTeamA = true
     var playerID: String = "115370"
     var teamID: String = "55011"
     var individualStats: IndividualStats?

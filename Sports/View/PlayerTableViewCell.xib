@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,65 +20,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="410" height="137.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headshot" translatesAutoresizingMaskIntoConstraints="NO" id="Hx0-a2-jTa">
-                        <rect key="frame" x="20" y="20" width="90" height="90"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="dwA-Va-SzZ"/>
-                            <constraint firstAttribute="height" constant="90" id="r4d-ZR-OoN"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tCT-MJ-XsI">
-                        <rect key="frame" x="118" y="20" width="272" height="82"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vfk-y0-CMZ">
+                        <rect key="frame" x="20" y="20" width="370" height="107"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWM-Xb-Lai">
-                                <rect key="frame" x="0.0" y="0.0" width="272" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JumperNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBf-t4-4sh">
-                                <rect key="frame" x="0.0" y="20.5" width="272" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1h-tU-ADX">
-                                <rect key="frame" x="0.0" y="41" width="272" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StatValue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIf-jq-Iyo">
-                                <rect key="frame" x="0.0" y="61.5" width="272" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQN-zs-AJO" customClass="PlayerView" customModule="Sports" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="185" height="107"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-4n-r8v" customClass="PlayerView" customModule="Sports" customModuleProvider="target">
+                                <rect key="frame" x="185" y="0.0" width="185" height="107"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tCT-MJ-XsI" secondAttribute="bottom" constant="20" symbolic="YES" id="1VC-vE-1PJ"/>
-                    <constraint firstItem="Hx0-a2-jTa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="4m4-y0-Dy4"/>
-                    <constraint firstItem="Hx0-a2-jTa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="6NJ-Bk-OTH"/>
-                    <constraint firstItem="tCT-MJ-XsI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="DDZ-Xt-Ij5"/>
-                    <constraint firstAttribute="trailing" secondItem="tCT-MJ-XsI" secondAttribute="trailing" constant="20" symbolic="YES" id="JZS-KP-Jdk"/>
-                    <constraint firstItem="tCT-MJ-XsI" firstAttribute="leading" secondItem="Hx0-a2-jTa" secondAttribute="trailing" constant="8" symbolic="YES" id="hi6-qB-OSA"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hx0-a2-jTa" secondAttribute="bottom" constant="20" symbolic="YES" id="xy2-Kh-SYV"/>
+                    <constraint firstItem="vfk-y0-CMZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="H7l-p5-XKa"/>
+                    <constraint firstAttribute="trailing" secondItem="vfk-y0-CMZ" secondAttribute="trailing" constant="20" symbolic="YES" id="TtW-do-JiA"/>
+                    <constraint firstItem="vfk-y0-CMZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="Ua9-SL-r41"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vfk-y0-CMZ" secondAttribute="bottom" id="aRV-eH-VFA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="headshotImage" destination="Hx0-a2-jTa" id="971-lp-zJ1"/>
-                <outlet property="jumperNumber" destination="dBf-t4-4sh" id="D6x-5g-m3F"/>
-                <outlet property="name" destination="TWM-Xb-Lai" id="Mvo-ny-9U3"/>
-                <outlet property="position" destination="J1h-tU-ADX" id="VfB-vg-RH4"/>
-                <outlet property="statValue" destination="HIf-jq-Iyo" id="2P3-HE-Sco"/>
+                <outlet property="teamAPlayer" destination="kQN-zs-AJO" id="pV9-vP-wLp"/>
+                <outlet property="teamBPlayer" destination="Azl-4n-r8v" id="d6x-m7-Lar"/>
             </connections>
             <point key="canvasLocation" x="79" y="101"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="headshot" width="549" height="552"/>
-    </resources>
 </document>

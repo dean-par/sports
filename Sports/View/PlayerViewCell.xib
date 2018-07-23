@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="115" id="KGk-i7-Jjw" customClass="PlayerViewCell" customModule="Sports" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-if-xv9">
+                        <rect key="frame" x="16" y="11" width="288" height="93"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yD4-sH-xQi" customClass="PlayerView" customModule="Sports" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="93"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5j0-hu-27c" customClass="PlayerView" customModule="Sports" customModuleProvider="target">
+                                <rect key="frame" x="148" y="0.0" width="140" height="93"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5j0-hu-27c" firstAttribute="leading" secondItem="yD4-sH-xQi" secondAttribute="trailing" constant="8" symbolic="YES" id="1Se-ya-Qb0"/>
+                            <constraint firstItem="5j0-hu-27c" firstAttribute="leading" secondItem="w1d-if-xv9" secondAttribute="leading" constant="148" id="7T9-kG-G11"/>
+                            <constraint firstItem="yD4-sH-xQi" firstAttribute="leading" secondItem="w1d-if-xv9" secondAttribute="leading" id="DkT-H1-jJc"/>
+                            <constraint firstAttribute="trailing" secondItem="5j0-hu-27c" secondAttribute="trailing" id="Mr8-LF-Ebg"/>
+                            <constraint firstItem="5j0-hu-27c" firstAttribute="leading" secondItem="yD4-sH-xQi" secondAttribute="trailing" constant="8" symbolic="YES" id="PGq-IV-nRy"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="w1d-if-xv9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="0aM-hb-q1t"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="w1d-if-xv9" secondAttribute="bottom" id="Br0-DC-e8A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="w1d-if-xv9" secondAttribute="trailing" id="lRW-I7-nh9"/>
+                    <constraint firstItem="w1d-if-xv9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xc0-7d-wAp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="34" y="18.5"/>
+        </tableViewCell>
+    </objects>
+</document>

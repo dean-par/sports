@@ -10,10 +10,7 @@ import UIKit
 
 @IBDesignable class PlayerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var jumperNumber: UILabel!
-    @IBOutlet weak var position: UILabel!
-    @IBOutlet weak var statValue: UILabel!
-    @IBOutlet weak var headshotImage: UIImageView!
+    @IBOutlet weak var teamAPlayer: PlayerView!
+    @IBOutlet weak var teamBPlayer: PlayerView!
     
 }

@@ -25,6 +25,10 @@
 		A4B43AAC2105E32E007B7491 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */; };
 		A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */; };
 		A4B43AB72105F9F6007B7491 /* PlayerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43AB62105F9F6007B7491 /* PlayerDetailViewModel.swift */; };
+		A4B43AB921068F94007B7491 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43AB821068F94007B7491 /* PlayerView.xib */; };
+		A4B43ABB21068FB3007B7491 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43ABA21068FB3007B7491 /* PlayerView.swift */; };
+		A4B43AC021069132007B7491 /* PlayerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43ABE21069132007B7491 /* PlayerViewCell.swift */; };
+		A4B43AC121069132007B7491 /* PlayerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43ABF21069132007B7491 /* PlayerViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		A4B43AB32105F98E007B7491 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		A4B43AB62105F9F6007B7491 /* PlayerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewModel.swift; sourceTree = "<group>"; };
+		A4B43AB821068F94007B7491 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		A4B43ABA21068FB3007B7491 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		A4B43ABE21069132007B7491 /* PlayerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewCell.swift; sourceTree = "<group>"; };
+		A4B43ABF21069132007B7491 /* PlayerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,10 @@
 			children = (
 				A4B43A9D2104A5CB007B7491 /* PlayerTableViewCell.swift */,
 				A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */,
+				A4B43AB821068F94007B7491 /* PlayerView.xib */,
+				A4B43ABA21068FB3007B7491 /* PlayerView.swift */,
+				A4B43ABE21069132007B7491 /* PlayerViewCell.swift */,
+				A4B43ABF21069132007B7491 /* PlayerViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +310,8 @@
 				A41EF23721045890005A08D4 /* LaunchScreen.storyboard in Resources */,
 				A41EF23421045890005A08D4 /* Assets.xcassets in Resources */,
 				A41EF2322104588F005A08D4 /* Main.storyboard in Resources */,
+				A4B43AB921068F94007B7491 /* PlayerView.xib in Resources */,
+				A4B43AC121069132007B7491 /* PlayerViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,11 +343,13 @@
 				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A41EF22F2104588F005A08D4 /* MatchViewController.swift in Sources */,
 				A4B43AB72105F9F6007B7491 /* PlayerDetailViewModel.swift in Sources */,
+				A4B43ABB21068FB3007B7491 /* PlayerView.swift in Sources */,
 				A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */,
 				A4B43A9F2104A5CB007B7491 /* PlayerTableViewCell.swift in Sources */,
 				A41EF22D2104588F005A08D4 /* AppDelegate.swift in Sources */,
 				A4B43AAC2105E32E007B7491 /* UIImageViewExtensions.swift in Sources */,
 				A41EF25C21045FC0005A08D4 /* Match.swift in Sources */,
+				A4B43AC021069132007B7491 /* PlayerViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
