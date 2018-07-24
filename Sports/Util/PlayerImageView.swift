@@ -11,7 +11,7 @@ import UIKit
 class PlayerImageView: UIImageView {
     
     var player: Player?
-    var matchID: String?
+    var teamID: String?
     
     var playerID: String? {
         return String(player?.id ?? 0)
