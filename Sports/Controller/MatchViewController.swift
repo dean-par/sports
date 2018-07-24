@@ -13,6 +13,9 @@ class MatchViewController: UITableViewController {
     var matchStats: [Match]?
     var matchStatsSectionViewModel: MatchStatsSectionViewModel?
     
+    @IBOutlet weak var teamALabel: UILabel!
+    @IBOutlet weak var teamBLabel: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.estimatedRowHeight = 100
@@ -30,6 +33,8 @@ class MatchViewController: UITableViewController {
                 self.matchStatsSectionViewModel = MatchStatsSectionViewModel(matchStats: matchStats)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
+                    strongSelf.teamALabel.text = matchStats.first?.teamA.name
+                    strongSelf.teamBLabel.text = matchStats.first?.teamB.name
                     strongSelf.tableView.reloadData()
                 }
             } catch {
@@ -70,7 +75,6 @@ class MatchViewController: UITableViewController {
             cell.teamBPlayer.headshotImage?.isUserInteractionEnabled = true
         }
         cell.layoutIfNeeded()
-        
         return cell
     }
     
@@ -88,9 +92,7 @@ class MatchViewController: UITableViewController {
             detailViewController.teamID = String(matchStats?.first?.teamA.id ?? 0)
         default: break
         }
-        
     }
-    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return matchStatsSectionViewModel?.titleFor(section: section)

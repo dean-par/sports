@@ -12,6 +12,8 @@ class PlayerDetailViewController: UITableViewController {
     
     @IBOutlet weak var headshotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var positionLabel: UILabel!
+    var player: Player?
     
     var isTeamA = true
     var playerID: String = "115370"
@@ -28,7 +30,10 @@ class PlayerDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = player?.fullName
+        positionLabel.text = player?.position
         // Force unwrap url since we have certainty it exists.
+        headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
         NetworkManager.shared.fetch(for: Configuration.playerStatsURL(for: teamID, playerID: playerID)!, completionHandler: { data in
             do {
                 let individualStats = try JSONDecoder().decode(IndividualStats.self, from: data)
@@ -49,6 +54,10 @@ class PlayerDetailViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Last Game Stats"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
