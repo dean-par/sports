@@ -18,7 +18,6 @@
 		A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4D82104604C007A2CCC /* IndividualStats.swift */; };
 		A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4DA210462AF007A2CCC /* NetworkManager.swift */; };
 		A421E4DE2104633E007A2CCC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A421E4DD2104633E007A2CCC /* Configuration.swift */; };
-		A4B43A9521049D82007B7491 /* MatchTopPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */; };
 		A4B43A9C2104A339007B7491 /* MatchStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43A9B2104A339007B7491 /* MatchStatsViewModel.swift */; };
 		A4B43A9F2104A5CB007B7491 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43A9D2104A5CB007B7491 /* PlayerTableViewCell.swift */; };
 		A4B43AA02104A5CB007B7491 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */; };
@@ -65,7 +64,6 @@
 		A421E4D82104604C007A2CCC /* IndividualStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStats.swift; sourceTree = "<group>"; };
 		A421E4DA210462AF007A2CCC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A421E4DD2104633E007A2CCC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTopPlayersViewModel.swift; sourceTree = "<group>"; };
 		A4B43A9B2104A339007B7491 /* MatchStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatsViewModel.swift; sourceTree = "<group>"; };
 		A4B43A9D2104A5CB007B7491 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			children = (
 				A41EF25B21045FC0005A08D4 /* Match.swift */,
 				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
-				A4B43A9421049D82007B7491 /* MatchTopPlayersViewModel.swift */,
 				A4B43A9B2104A339007B7491 /* MatchStatsViewModel.swift */,
 				A4B43AB62105F9F6007B7491 /* PlayerViewModel.swift */,
 			);
@@ -334,7 +331,6 @@
 			files = (
 				A4B43A9C2104A339007B7491 /* MatchStatsViewModel.swift in Sources */,
 				A421E4DE2104633E007A2CCC /* Configuration.swift in Sources */,
-				A4B43A9521049D82007B7491 /* MatchTopPlayersViewModel.swift in Sources */,
 				A4B43AB42105F98E007B7491 /* PlayerDetailViewController.swift in Sources */,
 				A421E4D92104604C007A2CCC /* IndividualStats.swift in Sources */,
 				A4C10C672106B0CA00A3603D /* PlayerImageView.swift in Sources */,

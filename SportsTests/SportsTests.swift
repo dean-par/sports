@@ -26,6 +26,11 @@ class SportsTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testStatValueIsNotNegative() {
+        let player = Player(id: 413, position: "Fullback", fullName: "James Dean", shortName: "J Dean", statValue: 78, jumperNumber: 32)
+        XCTAssertFalse(player.id < 0)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

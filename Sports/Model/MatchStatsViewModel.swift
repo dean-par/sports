@@ -60,14 +60,6 @@ class MatchStatsViewModel {
         return teamB?.name ?? ""
     }
     
-    var topAPlayers: [Player] {
-        return teamA?.topPlayers ?? []
-    }
-    
-    var topBPlayers: [Player] {
-        return teamB?.topPlayers ?? []
-    }
-    
     init(matchStats: [Match]) {
         numberOfSections = matchStats.count
         self.matchStats = matchStats
