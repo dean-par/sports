@@ -72,6 +72,14 @@ class MatchStatsViewModel {
         numberOfSections = matchStats.count
         self.matchStats = matchStats
     }
+    
+    func matchFor(section: Int) -> Match {
+        return matchStats[section]
+    }
+    
+//    func playerFor(row: Int) -> Player {
+//        
+//    }
         
     func numberOfRows(section: Int) -> Int {
         return matchStats[section].teamA.topPlayers?.count ?? 0

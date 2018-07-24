@@ -73,35 +73,39 @@ class MatchViewController: UITableViewController {
             let matchStatsViewModel = matchStatsViewModel
             else { return UITableViewCell() }
         // Switch on stat type enum here.
-        let player = matchStatsViewModel.topAPlayers[indexPath.row]
-        cell.teamAPlayer.textLabel.text = player.fullName
-        cell.teamAPlayer.detailTextLabel.text = String(player.jumperNumber)
-        cell.teamAPlayer.subtitleTextLabel.text = player.position
-        cell.teamAPlayer.subDetailTextLabel.text = String(player.statValue)
-        let playerID = String(player.id)
-        // Downloading image is failing.
-        if let headshotImage =  cell.teamAPlayer.headshotImage as? PlayerImageView {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-            headshotImage.player = player
-            headshotImage.teamID = matchStatsViewModel.teamAID
-            headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
-            headshotImage.addGestureRecognizer(tapGesture)
-            headshotImage.isUserInteractionEnabled = true
+        let match = matchStatsViewModel.matchFor(section: indexPath.section)
+        if let player = match.teamA.topPlayers?[indexPath.row] {
+            cell.teamAPlayer.textLabel.text = player.fullName
+            cell.teamAPlayer.detailTextLabel.text = String(player.jumperNumber)
+            cell.teamAPlayer.subtitleTextLabel.text = player.position
+            cell.teamAPlayer.subDetailTextLabel.text = String(player.statValue)
+            let playerID = String(player.id)
+            // Downloading image is failing.
+            if let headshotImage =  cell.teamAPlayer.headshotImage as? PlayerImageView {
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+                headshotImage.player = player
+                headshotImage.teamID = matchStatsViewModel.teamAID
+                headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+                headshotImage.addGestureRecognizer(tapGesture)
+                headshotImage.isUserInteractionEnabled = true
+            }
         }
-        let bplayer = matchStatsViewModel.topAPlayers[indexPath.row]
-        cell.teamBPlayer.textLabel.text = bplayer.fullName
-        cell.teamBPlayer.detailTextLabel.text = String(bplayer.jumperNumber)
-        cell.teamBPlayer.subtitleTextLabel.text = bplayer.position
-        cell.teamBPlayer.subDetailTextLabel.text = String(bplayer.statValue)
-        let bplayerID = String(player.id)
-        // Downloading image is failing.
-        if let headshotImage =  cell.teamBPlayer.headshotImage as? PlayerImageView {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-            headshotImage.player = player
-            headshotImage.teamID = matchStatsViewModel.teamBID
-            headshotImage.downloadedFrom(url: Configuration.image(for: bplayerID)!)
-            headshotImage.addGestureRecognizer(tapGesture)
-            headshotImage.isUserInteractionEnabled = true
+        // Fix var naming.
+        if let bplayer = match.teamB.topPlayers?[indexPath.row] {
+            cell.teamBPlayer.textLabel.text = bplayer.fullName
+            cell.teamBPlayer.detailTextLabel.text = String(bplayer.jumperNumber)
+            cell.teamBPlayer.subtitleTextLabel.text = bplayer.position
+            cell.teamBPlayer.subDetailTextLabel.text = String(bplayer.statValue)
+            let bplayerID = String(bplayer.id)
+            // Downloading image is failing.
+            if let headshotImage =  cell.teamBPlayer.headshotImage as? PlayerImageView {
+                let tapBGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+                headshotImage.player = bplayer
+                headshotImage.teamID = matchStatsViewModel.teamBID
+                headshotImage.downloadedFrom(url: Configuration.image(for: bplayerID)!)
+                headshotImage.addGestureRecognizer(tapBGesture)
+                headshotImage.isUserInteractionEnabled = true
+            }
         }
         cell.layoutIfNeeded()
         return cell
@@ -122,13 +126,13 @@ class MatchViewController: UITableViewController {
     // MARK: Navigation
 
     @objc func handleTap(sender: Any?) {
-        performSegue(withIdentifier: "playerDetail", sender: sender)
+        performSegue(withIdentifier: SegueIdentifier.playerDetail, sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let imageView = (sender as? UITapGestureRecognizer)?.view as? PlayerImageView else { return }
         switch segue.identifier {
-        case "playerDetail":
+        case SegueIdentifier.playerDetail:
             guard let detailViewController = segue.destination as? PlayerDetailViewController else { return }
             detailViewController.player = imageView.player
             detailViewController.teamID = imageView.teamID ?? ""
