@@ -13,7 +13,8 @@ class IndividualStatsViewModel {
     var individualStats: IndividualStats
     
     var statKeys: [String]? {
-        return individualStats.lastMatchStats.map { $0.key }
+        // Replace "_" with spaces to make it visually appealing.
+        return individualStats.lastMatchStats.map { $0.key.replacingOccurrences(of: "_", with: " ") }
     }
     
     var statValues: [String]? {

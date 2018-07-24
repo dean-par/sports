@@ -177,7 +177,6 @@
 				A421E4DA210462AF007A2CCC /* NetworkManager.swift */,
 				A421E4DD2104633E007A2CCC /* Configuration.swift */,
 				A4B43AAB2105E32D007B7491 /* UIImageViewExtensions.swift */,
-				A4C10C662106B0CA00A3603D /* PlayerImageView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -189,6 +188,7 @@
 				A4B43A9E2104A5CB007B7491 /* PlayerTableViewCell.xib */,
 				A4B43AB821068F94007B7491 /* PlayerView.xib */,
 				A4B43ABA21068FB3007B7491 /* PlayerView.swift */,
+				A4C10C662106B0CA00A3603D /* PlayerImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
