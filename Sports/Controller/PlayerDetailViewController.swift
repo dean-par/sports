@@ -13,11 +13,11 @@ class PlayerDetailViewController: UITableViewController {
     @IBOutlet weak var headshotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
-    var player: Player?
+    var playerViewModel: PlayerViewModel?
     
     var isTeamA = true
     var playerID: String {
-        return String(player?.id ?? 0)
+        return String(playerViewModel?.id ?? "")
     }
     var teamID: String = "55011"
     var individualStats: IndividualStats?
@@ -32,8 +32,8 @@ class PlayerDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = player?.fullName
-        positionLabel.text = player?.position
+        nameLabel.text = playerViewModel?.fullName
+        positionLabel.text = playerViewModel?.position
         // Force unwrap url since we have certainty it exists.
         headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
         NetworkManager.shared.fetch(for: Configuration.playerStatsURL(for: teamID, playerID: playerID)!, completionHandler: { data in

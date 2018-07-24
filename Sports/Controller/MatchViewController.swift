@@ -72,37 +72,36 @@ class MatchViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.player) as? PlayerTableViewCell,
             let matchStatsViewModel = matchStatsViewModel
             else { return UITableViewCell() }
-        // Switch on stat type enum here.
         let match = matchStatsViewModel.matchFor(section: indexPath.section)
         if let player = match.teamA.topPlayers?[indexPath.row] {
-            cell.teamAPlayer.textLabel.text = player.fullName
-            cell.teamAPlayer.detailTextLabel.text = String(player.jumperNumber)
-            cell.teamAPlayer.subtitleTextLabel.text = player.position
-            cell.teamAPlayer.subDetailTextLabel.text = String(player.statValue)
-            let playerID = String(player.id)
+            let playerViewModel = PlayerViewModel(player: player)
+            cell.teamAPlayer.textLabel.text = playerViewModel.fullName
+            cell.teamAPlayer.detailTextLabel.text = playerViewModel.jumperNumber
+            cell.teamAPlayer.subtitleTextLabel.text = playerViewModel.position
+            cell.teamAPlayer.subDetailTextLabel.text = playerViewModel.statValue
             // Downloading image is failing.
             if let headshotImage =  cell.teamAPlayer.headshotImage as? PlayerImageView {
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-                headshotImage.player = player
+                headshotImage.playerViewModel = playerViewModel
                 headshotImage.teamID = matchStatsViewModel.teamAID
-                headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+                headshotImage.downloadedFrom(url: Configuration.image(for: playerViewModel.id)!)
                 headshotImage.addGestureRecognizer(tapGesture)
                 headshotImage.isUserInteractionEnabled = true
             }
         }
         // Fix var naming.
-        if let bplayer = match.teamB.topPlayers?[indexPath.row] {
-            cell.teamBPlayer.textLabel.text = bplayer.fullName
-            cell.teamBPlayer.detailTextLabel.text = String(bplayer.jumperNumber)
-            cell.teamBPlayer.subtitleTextLabel.text = bplayer.position
-            cell.teamBPlayer.subDetailTextLabel.text = String(bplayer.statValue)
-            let bplayerID = String(bplayer.id)
+        if let bPlayer = match.teamB.topPlayers?[indexPath.row] {
+            let playerViewModel = PlayerViewModel(player: bPlayer)
+            cell.teamBPlayer.textLabel.text = playerViewModel.fullName
+            cell.teamBPlayer.detailTextLabel.text = playerViewModel.jumperNumber
+            cell.teamBPlayer.subtitleTextLabel.text = playerViewModel.position
+            cell.teamBPlayer.subDetailTextLabel.text = playerViewModel.statValue
             // Downloading image is failing.
             if let headshotImage =  cell.teamBPlayer.headshotImage as? PlayerImageView {
                 let tapBGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-                headshotImage.player = bplayer
+                headshotImage.playerViewModel = playerViewModel
                 headshotImage.teamID = matchStatsViewModel.teamBID
-                headshotImage.downloadedFrom(url: Configuration.image(for: bplayerID)!)
+                headshotImage.downloadedFrom(url: Configuration.image(for: playerViewModel.id)!)
                 headshotImage.addGestureRecognizer(tapBGesture)
                 headshotImage.isUserInteractionEnabled = true
             }
@@ -134,7 +133,7 @@ class MatchViewController: UITableViewController {
         switch segue.identifier {
         case SegueIdentifier.playerDetail:
             guard let detailViewController = segue.destination as? PlayerDetailViewController else { return }
-            detailViewController.player = imageView.player
+            detailViewController.playerViewModel = imageView.playerViewModel
             detailViewController.teamID = imageView.teamID ?? ""
         default: break
         }

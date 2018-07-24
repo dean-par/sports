@@ -10,11 +10,11 @@ import UIKit
 
 class PlayerImageView: UIImageView {
     
-    var player: Player?
+    var playerViewModel: PlayerViewModel?
     var teamID: String?
     
     var playerID: String? {
-        return String(player?.id ?? 0)
+        return playerViewModel?.id ?? ""
     }
 
 }
