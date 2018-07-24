@@ -1,9 +1,9 @@
 # Sports App
-This is an app showing the stats of players of a match. On the main page, the list of the two teams' top players are listed.
+This is an app showing the stats of players of a match. On the main page, the list of the two teams' top players.
 Tapping on the image of the player will bring you to a more detailed page of that particular player's stats of their last game. This will show stats such as goals, kicks, offsides, etc.
 
 # Endpoint Issues
-The endpoint for downloading the images and the default image was not working. So I have just downloaded a random default image from the internet and have set it as the image of the players.
+The endpoint for downloading the images and the default image was not working. So I have just downloaded a random default image from the internet and have set it as the image of the players. Please note that the code is still implemented to download an image from a url which can be found in the UIImageViewExtensions.
 
 # Scope Reduction
 For the sake of delivering the project in a timely manner, I have not placed importance on error handling scenarios.
