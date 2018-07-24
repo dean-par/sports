@@ -30,7 +30,6 @@ struct IndividualStats: Codable {
         case lastMatchID = "last_match_id"
         case careerStats = "career_stats"
         case lastMatchStats = "last_match_stats"
-       // case seriesSeasonStats = "series_season_stats"
     }
 }
 

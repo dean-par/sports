@@ -20,9 +20,11 @@ class PlayerViewModel {
     init(player: Player) {
         fullName = player.fullName
         shortName = player.shortName
-        jumperNumber = String(player.jumperNumber)
+        // Jumper number should not be below 0. If it is, set it to 0.
+        jumperNumber = String(player.jumperNumber < 0 ? 0 : player.jumperNumber)
         position = player.position
-        statValue = ["stat value: ", String(player.statValue)].joined()
+        // Stat value should not be below 0. If it is, set it to 0.
+        statValue = ["stat value: ", String(player.statValue < 0 ? 0 : player.statValue)].joined()
         id = String(player.id)
     }
     
