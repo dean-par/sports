@@ -16,7 +16,9 @@ class PlayerDetailViewController: UITableViewController {
     var player: Player?
     
     var isTeamA = true
-    var playerID: String = "115370"
+    var playerID: String {
+        return String(player?.id ?? 0)
+    }
     var teamID: String = "55011"
     var individualStats: IndividualStats?
     
