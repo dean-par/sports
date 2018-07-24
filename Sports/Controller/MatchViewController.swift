@@ -15,6 +15,8 @@ class MatchViewController: UITableViewController {
     
     var matchStatsViewModel: MatchStatsViewModel?
     
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
     struct MatchIdentifier {
         static let penrithVsCanterbury = "NRL20172101"
     }
@@ -42,6 +44,13 @@ class MatchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: CellNibName.player, bundle: nil), forCellReuseIdentifier: CellIdentifier.player)
+        loadFromServer()
+    }
+    
+    private func loadFromServer() {
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         // Force unwrap url since we have certainty it exists.
         NetworkManager.shared.fetch(for: Configuration.matchURL(for: MatchIdentifier.penrithVsCanterbury)!, completionHandler: { data in
             do {
@@ -49,16 +58,26 @@ class MatchViewController: UITableViewController {
                 self.matchStatsViewModel = MatchStatsViewModel(matchStats: matchStats)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
+                    strongSelf.activityIndicator.stopAnimating()
                     strongSelf.updateHeaderView()
                     strongSelf.tableView.reloadData()
                 }
             } catch {
                 // TODO: implement error case.
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                   strongSelf.activityIndicator.stopAnimating()
+                }
             }
         }) { error in
             // TODO: implement error case.
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.activityIndicator.stopAnimating()
+            }
         }
     }
+
     
     private func updateHeaderView() {
         guard let matchStatsViewModel = matchStatsViewModel else { return }
@@ -75,7 +94,7 @@ class MatchViewController: UITableViewController {
         let match = matchStatsViewModel.matchFor(section: indexPath.section)
         if let player = match.teamA.topPlayers?[indexPath.row] {
             let playerViewModel = PlayerViewModel(player: player)
-            cell.teamAPlayer.textLabel.text = playerViewModel.fullName
+            cell.teamAPlayer.textLabel.text = playerViewModel.shortName
             cell.teamAPlayer.detailTextLabel.text = playerViewModel.jumperNumber
             cell.teamAPlayer.subtitleTextLabel.text = playerViewModel.position
             cell.teamAPlayer.subDetailTextLabel.text = playerViewModel.statValue
@@ -89,10 +108,9 @@ class MatchViewController: UITableViewController {
                 headshotImage.isUserInteractionEnabled = true
             }
         }
-        // Fix var naming.
         if let bPlayer = match.teamB.topPlayers?[indexPath.row] {
             let playerViewModel = PlayerViewModel(player: bPlayer)
-            cell.teamBPlayer.textLabel.text = playerViewModel.fullName
+            cell.teamBPlayer.textLabel.text = playerViewModel.shortName
             cell.teamBPlayer.detailTextLabel.text = playerViewModel.jumperNumber
             cell.teamBPlayer.subtitleTextLabel.text = playerViewModel.position
             cell.teamBPlayer.subDetailTextLabel.text = playerViewModel.statValue

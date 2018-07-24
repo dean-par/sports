@@ -12,15 +12,17 @@ class PlayerViewModel {
     
     var id: String
     var fullName: String
+    var shortName: String
     var jumperNumber: String
     var position: String
     var statValue: String
     
     init(player: Player) {
         fullName = player.fullName
+        shortName = player.shortName
         jumperNumber = String(player.jumperNumber)
         position = player.position
-        statValue = String(player.statValue)
+        statValue = ["stat value: ", String(player.statValue)].joined()
         id = String(player.id)
     }
     

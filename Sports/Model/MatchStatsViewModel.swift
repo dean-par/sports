@@ -10,6 +10,26 @@ import Foundation
 
 class MatchStatsViewModel {
     
+    enum StatType: String {
+        case fantasyPoints = "fantasy_points"
+        case tackles = "tackles"
+        case runMetres = "run_metres"
+        case runs = "runs"
+        case other
+        
+        var title: String {
+            let title: String
+            switch self {
+            case .fantasyPoints: title = "Fantasy Points"
+            case .tackles: title = "Tackles"
+            case .runMetres: title = "Run in Metres"
+            case .runs: title = "Runs"
+            case .other: title = "Other"
+            }
+            return title
+        }
+    }
+    
     var numberOfSections = 0
     
     private var matchStats: [Match]
@@ -38,8 +58,7 @@ class MatchStatsViewModel {
         return teamID
     }
     
-    // TODO: This is a copy of above, implement in way to re-use code
-    // in a function by using inputing the team argument.
+    // TODO: This is a copy of above, implement in way to re-use code.
     var teamBID: String {
         let teamID: String
         if let team = teamB,
@@ -74,7 +93,9 @@ class MatchStatsViewModel {
     }
     
     func titleFor(section: Int) -> String {
-        return matchStats[section].statType
+        // Setting default to other if stat type doesn't exist.
+        let statType = StatType.init(rawValue: matchStats[section].statType) ?? .other
+        return statType.title
     }
     
 }

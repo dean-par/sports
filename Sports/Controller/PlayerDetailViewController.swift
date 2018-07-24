@@ -17,6 +17,8 @@ class PlayerDetailViewController: UITableViewController {
     struct CellIdentifier {
         static let stat = "stat"
     }
+    
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
 
     var playerViewModel: PlayerViewModel?
     var teamID = ""
@@ -30,21 +32,37 @@ class PlayerDetailViewController: UITableViewController {
         super.viewDidLoad()
         nameLabel.text = playerViewModel?.fullName
         positionLabel.text = playerViewModel?.position
-        // Force unwrap url since we have certainty it exists.
+        // Download image of player - this is failing.
         headshotImage.downloadedFrom(url: Configuration.image(for: playerID)!)
+        loadFromServer()
+    }
+    
+    func loadFromServer() {
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         NetworkManager.shared.fetch(for: Configuration.playerStatsURL(for: teamID, playerID: playerID)!, completionHandler: { data in
             do {
                 let individualStats = try JSONDecoder().decode(IndividualStats.self, from: data)
                 self.individualStatsViewModel = IndividualStatsViewModel(individualStats: individualStats)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
+                    strongSelf.activityIndicator.stopAnimating()
                     strongSelf.tableView.reloadData()
                 }
             } catch {
                 // TODO: implement error case.
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.activityIndicator.stopAnimating()
+                }
             }
         }) { error in
             // TODO: implement error case.
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.activityIndicator.stopAnimating()
+            }
         }
     }
 

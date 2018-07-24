@@ -8,14 +8,6 @@
 
 import Foundation
 
-// implement StatType enum.
-enum StatType: String {
-    case fantasyPoints = "fantasy_points"
-    case tackles = "tackles"
-    case runMetres = "run_metres"
-    case runs = "runs"
-}
-
 struct Match: Codable {
     let matchID: String
     let teamA, teamB: Team

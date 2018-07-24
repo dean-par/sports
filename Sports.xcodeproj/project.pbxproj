@@ -28,6 +28,7 @@
 		A4B43ABB21068FB3007B7491 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43ABA21068FB3007B7491 /* PlayerView.swift */; };
 		A4C10C672106B0CA00A3603D /* PlayerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C10C662106B0CA00A3603D /* PlayerImageView.swift */; };
 		A4C10C692106C84F00A3603D /* IndividualStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C10C682106C84F00A3603D /* IndividualStatsViewModel.swift */; };
+		A4C10C702106D0F000A3603D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A4C10C6F2106D0F000A3603D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		A4B43ABA21068FB3007B7491 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		A4C10C662106B0CA00A3603D /* PlayerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerImageView.swift; sourceTree = "<group>"; };
 		A4C10C682106C84F00A3603D /* IndividualStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStatsViewModel.swift; sourceTree = "<group>"; };
+		A4C10C6F2106D0F000A3603D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A41EF2202104588F005A08D4 = {
 			isa = PBXGroup;
 			children = (
+				A4C10C6F2106D0F000A3603D /* README.md */,
 				A41EF22B2104588F005A08D4 /* Sports */,
 				A41EF24021045890005A08D4 /* SportsTests */,
 				A41EF24B21045890005A08D4 /* SportsUITests */,
@@ -303,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C10C702106D0F000A3603D /* README.md in Resources */,
 				A4B43AA02104A5CB007B7491 /* PlayerTableViewCell.xib in Resources */,
 				A41EF23721045890005A08D4 /* LaunchScreen.storyboard in Resources */,
 				A41EF23421045890005A08D4 /* Assets.xcassets in Resources */,
