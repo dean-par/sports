@@ -27,6 +27,7 @@
 		A4B43AB921068F94007B7491 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B43AB821068F94007B7491 /* PlayerView.xib */; };
 		A4B43ABB21068FB3007B7491 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B43ABA21068FB3007B7491 /* PlayerView.swift */; };
 		A4C10C672106B0CA00A3603D /* PlayerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C10C662106B0CA00A3603D /* PlayerImageView.swift */; };
+		A4C10C692106C84F00A3603D /* IndividualStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C10C682106C84F00A3603D /* IndividualStatsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		A4B43AB821068F94007B7491 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		A4B43ABA21068FB3007B7491 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		A4C10C662106B0CA00A3603D /* PlayerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerImageView.swift; sourceTree = "<group>"; };
+		A4C10C682106C84F00A3603D /* IndividualStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualStatsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				A421E4D82104604C007A2CCC /* IndividualStats.swift */,
 				A4B43A9B2104A339007B7491 /* MatchStatsViewModel.swift */,
 				A4B43AB62105F9F6007B7491 /* PlayerViewModel.swift */,
+				A4C10C682106C84F00A3603D /* IndividualStatsViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				A4B43ABB21068FB3007B7491 /* PlayerView.swift in Sources */,
 				A421E4DB210462AF007A2CCC /* NetworkManager.swift in Sources */,
 				A4B43A9F2104A5CB007B7491 /* PlayerTableViewCell.swift in Sources */,
+				A4C10C692106C84F00A3603D /* IndividualStatsViewModel.swift in Sources */,
 				A41EF22D2104588F005A08D4 /* AppDelegate.swift in Sources */,
 				A4B43AAC2105E32E007B7491 /* UIImageViewExtensions.swift in Sources */,
 				A41EF25C21045FC0005A08D4 /* Match.swift in Sources */,

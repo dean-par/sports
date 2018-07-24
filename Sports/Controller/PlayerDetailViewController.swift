@@ -13,21 +13,17 @@ class PlayerDetailViewController: UITableViewController {
     @IBOutlet weak var headshotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
-    var playerViewModel: PlayerViewModel?
     
-    var isTeamA = true
+    struct CellIdentifier {
+        static let stat = "stat"
+    }
+
+    var playerViewModel: PlayerViewModel?
+    var teamID = ""
+    var individualStatsViewModel: IndividualStatsViewModel?
+    
     var playerID: String {
         return String(playerViewModel?.id ?? "")
-    }
-    var teamID: String = "55011"
-    var individualStats: IndividualStats?
-    
-    var statKeys: [String]? {
-        return individualStats?.lastMatchStats.map { $0.key }
-    }
-    
-    var statValues: [String]? {
-        return individualStats?.lastMatchStats.map { String($0.value ?? 0) }
     }
 
     override func viewDidLoad() {
@@ -39,7 +35,7 @@ class PlayerDetailViewController: UITableViewController {
         NetworkManager.shared.fetch(for: Configuration.playerStatsURL(for: teamID, playerID: playerID)!, completionHandler: { data in
             do {
                 let individualStats = try JSONDecoder().decode(IndividualStats.self, from: data)
-                self.individualStats = individualStats
+                self.individualStatsViewModel = IndividualStatsViewModel(individualStats: individualStats)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.tableView.reloadData()
@@ -63,19 +59,18 @@ class PlayerDetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return individualStats?.lastMatchStats.count ?? 0
+        return individualStatsViewModel?.statsCount ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "stat") else { return UITableViewCell() }
-        if let statKeys = statKeys,
-            let statValues = statValues
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.stat) else { return UITableViewCell() }
+        if let statKeys = individualStatsViewModel?.statKeys,
+            let statValues = individualStatsViewModel?.statValues
         {
             cell.textLabel?.text = statKeys[indexPath.row]
-            cell.detailTextLabel?.text = String(statValues[indexPath.row])
+            cell.detailTextLabel?.text = statValues[indexPath.row]
         }
         return cell
-
     }
 
 }
